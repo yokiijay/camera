@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Camera</title>
+  <style>
+    html,body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .flex-column {
+      flex-direction: column;
+    }
+    #pic {
+      display: none;
+      height: 400px;
+      padding-bottom: 20px;
+    }
+    #fileInput {
+      display: none;
+    }
+    #btn {
+      border: none;
+      background: rgb(97, 82, 226);
+      color: rgb(235, 255, 237);
+      font-size: 2em;
+      padding: 10px 30px;
+      border-radius: 10px;
+      outline: none;
+      cursor: pointer;
+      box-shadow:
+      0 2px 4px 0 rgba(0,0,0,.3),
+      0 4px 8px 0 rgba(0,0,0,.2),
+      0 10px 10px 0 rgba(0,0,0,.1);
+    }
+    #btn:hover {
+      filter: brightness(90%);
+      box-shadow:
+      0 2px 4px 1px rgba(0,0,0,.4),
+      0 4px 8px 4px rgba(0,0,0,.1),
+      0 10px 10px 0 rgba(0,0,0,.1) inset;
+    }
+  </style>
+</head>
+<body>
+  <div class="container flex-column">
+    <img class="show" id="pic" src="" alt="图呢">
+    <button id="btn">📷 拍照</button>
+    <input id="fileInput" type="file" accept="image/*" capture='camera'>
+  </div>
+
+  <script src="./node_modules/html2canvas/dist/html2canvas.min.js"></script>
+  <script>
+    const pic = document.querySelector('#pic')
+    const btn = document.querySelector('#btn')
+    const fileInput = document.querySelector('#fileInput')
+
+    const event = new Event('click')
+
+    btn.addEventListener('click',(ev)=>{
+      fileInput.click(ev)
+    })
+
+    fileInput.addEventListener('change',ev=>{
+      const file = ev.target.files[0]
+      console.log( file )
+      if(!file) return
+
+      const picURL = URL.createObjectURL(file)
+      pic.src = picURL
+      pic.style.display = 'block'
+    })
+    
+  </script>
+</body>
+</html>
