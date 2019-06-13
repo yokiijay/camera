@@ -4,7 +4,7 @@
   },
   "name": "camera API",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "index.js",
   "repository": "git@github.com:yokiijay/camera.git",
   "author": "Yokiijay <yokiijay@qq.com>",
   "license": "MIT"
