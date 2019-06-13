@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "html2canvas": "^1.0.0-rc.3"
-  }
+  },
+  "name": "camera API",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "git@github.com:yokiijay/camera.git",
+  "author": "Yokiijay <yokiijay@qq.com>",
+  "license": "MIT"
 }
